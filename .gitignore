@@ -1,0 +1,32 @@
+# Binaries
+dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+pyproject-tui
+
+# Test artifacts
+*.test
+*.out
+coverage.out
+coverage.html
+
+# Build cache
+vendor/
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# GoReleaser
+dist/
+
+# App-related artifacts
+.pyproject-tui.toml
+pyproject.toml

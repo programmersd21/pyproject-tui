@@ -1,0 +1,52 @@
+[build-system]
+  build-backend = 'hatchling.build'
+  requires = ['hatchling']
+
+[project]
+  classifiers = ['Development Status :: 3 - Alpha', 'Programming Language :: Python :: 3', 'Programming Language :: Python :: 3.11']
+  dependencies = ['rich>=13.0', 'typer>=0.9', 'httpx>=0.27']
+  description = 'An example Python package'
+  keywords = ['cli', 'tui', 'tools']
+  name = 'my-package'
+  readme = 'README.md'
+  requires-python = '>=3.11'
+  version = '1.2.3'
+
+  [[project.authors]]
+    name = 'Soumalya'
+    email = 'dev@example.com'
+
+  [project.license]
+    text = 'MIT'
+
+  [project.optional-dependencies]
+    dev = ['pytest>=8.0', 'mypy>=1.9', 'ruff>=0.4']
+    docs = ['mkdocs>=1.5', 'mkdocs-material>=9.0']
+
+  [project.scripts]
+    my-cli = 'my_package.cli:main'
+    my-worker = 'my_package.worker:run'
+
+  [project.urls]
+    Documentation = 'https://docs.example.com'
+    Homepage = 'https://github.com/programmersd21/my-package'
+    Repository = 'https://github.com/programmersd21/my-package.git'
+
+[tool]
+  [tool.mypy]
+    ignore_missing_imports = true
+    python_version = '3.11'
+    strict = true
+
+  [tool.pytest]
+    [tool.pytest.ini_options]
+      addopts = '-v --tb=short'
+      testpaths = ['tests']
+
+  [tool.ruff]
+    line-length = 100
+    target-version = 'py311'
+
+    [tool.ruff.lint]
+      ignore = ['E501']
+      select = ['E', 'F', 'I', 'N', 'W', 'UP']

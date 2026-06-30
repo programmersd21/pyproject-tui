@@ -1,0 +1,109 @@
+version: 2
+
+project_name: pyproject-tui
+
+dist: dist
+
+before:
+  hooks:
+    - go mod tidy
+    - go generate ./...
+
+builds:
+  - id: pyproject-tui
+    main: ./cmd/pyproject-tui
+    binary: pyproject-tui
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    ignore:
+      - goos: windows
+        goarch: arm64
+    ldflags:
+      - -s -w
+      - -X github.com/programmersd21/pyproject-tui/cmd/pyproject-tui.version={{.Env.VERSION}}
+      - -X github.com/programmersd21/pyproject-tui/cmd/pyproject-tui.commit={{.Commit}}
+      - -X github.com/programmersd21/pyproject-tui/cmd/pyproject-tui.date={{.Date}}
+
+archives:
+  - id: pyproject-tui
+    builds:
+      - pyproject-tui
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
+    format_overrides:
+      - goos: windows
+    formats:
+          - zip
+    files:
+      - README.md
+      - LICENSE
+      - CHANGELOG.md
+
+checksum:
+  name_template: "checksums.txt"
+  algorithm: sha256
+
+snapshot:
+  version_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  use: github
+  sort: asc
+  groups:
+    - title: " Features"
+      regexp: "^.*feat[(\\w)]*:+.*$"
+      order: 0
+    - title: " Bug Fixes"
+      regexp: "^.*fix[(\\w)]*:+.*$"
+      order: 1
+    - title: " Documentation"
+      regexp: "^.*docs[(\\w)]*:+.*$"
+      order: 2
+    - title: " Chore"
+      order: 999
+  filters:
+    exclude:
+      - "^Merge pull request"
+      - "^Merge branch"
+      - "^chore: release"
+
+release:
+  github:
+    owner: programmersd21
+    name: pyproject-tui
+  name_template: "v{{ .Version }}"
+  footer: |
+    ## Installation
+
+    ### Go install
+    ```sh
+    go install github.com/programmersd21/pyproject-tui/cmd/pyproject-tui@latest
+    ```
+
+    ### Download binary
+    See the assets below for your platform.
+
+brews:
+  - name: pyproject-tui
+    homepage: https://github.com/programmersd21/pyproject-tui
+    description: "Keyboard-driven TUI for pyproject.toml"
+    license: MIT
+    repository:
+      owner: programmersd21
+      name: homebrew-tap
+    install: |
+      bin.install "pyproject-tui"
+    test: |
+      system "#{bin}/pyproject-tui", "--version"

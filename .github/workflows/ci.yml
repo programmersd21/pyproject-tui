@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - "VERSION"
+      - "**/*.go"
+      - "go.mod"
+      - "go.sum"
+      - ".github/workflows/ci.yml"
+  pull_request:
+    branches: [main, master]
+    paths:
+      - "VERSION"
+      - "**/*.go"
+      - "go.mod"
+      - "go.sum"
+      - ".github/workflows/ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Verify version file
+        shell: bash
+        run: test -s VERSION
+      - name: Run tests
+        run: go test ./...
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Build binary
+        run: make build
