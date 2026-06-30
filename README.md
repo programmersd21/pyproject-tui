@@ -38,12 +38,6 @@ A keyboard-driven terminal UI for reading and editing `pyproject.toml` files wit
 go install github.com/programmersd21/pyproject-tui/cmd/pyproject-tui@latest
 ```
 
-### Homebrew (COMING SOON)
-
-```sh
-brew install programmersd21/homebrew_tap/pyproject-tui
-```
-
 ### Binary download
 
 Download the latest release from the GitHub Releases page for your platform.

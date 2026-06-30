@@ -94,16 +94,3 @@ release:
 
     ### Download binary
     See the assets below for your platform.
-
-brews:
-  - name: pyproject-tui
-    homepage: https://github.com/programmersd21/pyproject-tui
-    description: "Keyboard-driven TUI for pyproject.toml"
-    license: MIT
-    repository:
-      owner: programmersd21
-      name: homebrew-tap
-    install: |
-      bin.install "pyproject-tui"
-    test: |
-      system "#{bin}/pyproject-tui", "--version"
