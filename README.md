@@ -4,8 +4,8 @@
 
 A keyboard-driven terminal UI for reading and editing `pyproject.toml` files with live settings, persistent configuration, and semantic theming.
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/programmersd21/pyproject-tui?style=for-the-badge)](https://goreportcard.com/report/github.com/programmersd21/pyproject-tui)
-[![CI](https://github.com/programmersd21/pyproject-tui/actions/workflows/ci.yml/badge.svg?style=for-the-badge)](https://github.com/programmersd21/pyproject-tui/actions/workflows/ci.yml)
+[![Go Report Card](https://img.shields.io/badge/dynamic/json?url=https://goreportcard.com/checks/github.com/programmersd21/pyproject-tui&query=$.grade&label=Go%20Report%20Card&style=for-the-badge)](https://goreportcard.com/report/github.com/programmersd21/pyproject-tui)
+[![CI](https://img.shields.io/github/actions/workflow/status/programmersd21/pyproject-tui/ci.yml?branch=main&style=for-the-badge&label=CI)](https://github.com/programmersd21/pyproject-tui/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/programmersd21/pyproject-tui?style=for-the-badge)](https://github.com/programmersd21/pyproject-tui/releases)
 [![License](https://img.shields.io/github/license/programmersd21/pyproject-tui?style=for-the-badge)](./LICENSE)
 
