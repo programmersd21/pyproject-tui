@@ -4,10 +4,12 @@
 
 A keyboard-driven terminal UI for reading and editing `pyproject.toml` files with live settings, persistent configuration, and semantic theming.
 
-[![Go Report Card](https://img.shields.io/badge/dynamic/json?url=https://goreportcard.com/checks/github.com/programmersd21/pyproject-tui&query=$.grade&label=Go%20Report%20Card&style=for-the-badge)](https://goreportcard.com/report/github.com/programmersd21/pyproject-tui)
-[![CI](https://img.shields.io/github/actions/workflow/status/programmersd21/pyproject-tui/ci.yml?branch=main&style=for-the-badge&label=CI)](https://github.com/programmersd21/pyproject-tui/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/programmersd21/pyproject-tui?style=for-the-badge)](https://github.com/programmersd21/pyproject-tui/releases)
-[![License](https://img.shields.io/github/license/programmersd21/pyproject-tui?style=for-the-badge)](./LICENSE)
+<p align="center">
+  <img src="https://img.shields.io/github/actions/workflow/status/programmersd21/pyproject-tui/ci.yml?branch=main&style=for-the-badge&labelColor=000000&color=00d4aa&label=CI" alt="ci">
+  <img src="https://img.shields.io/github/v/release/programmersd21/pyproject-tui?style=for-the-badge&labelColor=000000&color=4488ff" alt="release">
+  <img src="https://img.shields.io/github/license/programmersd21/pyproject-tui?style=for-the-badge&labelColor=000000&color=88cc44" alt="license">
+  <img src="https://img.shields.io/github/stars/programmersd21/pyproject-tui?style=for-the-badge&labelColor=000000&color=ffcc00" alt="stars">
+</p>
 
 ## Features
 
