@@ -32,6 +32,14 @@ A keyboard-driven terminal UI for reading and editing `pyproject.toml` files wit
 
 ## Installation
 
+### AUR install
+
+```sh
+yay -S pyproject-tui-bin
+```
+
+Lots of thanks to [@Dominiquini](https://github.com/Dominiquini) for assistance in AUR deployment!
+
 ### Go install
 
 ```sh
